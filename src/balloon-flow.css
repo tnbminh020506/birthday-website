@@ -1,0 +1,35 @@
+/* One 1.2-second overlap: both balloons, backgrounds and fades run together. */
+.balloon-viewport.intro { --scene-ease: cubic-bezier(.4,0,.2,1); display: block; height: 100svh; min-height: 600px; overflow: hidden; background: var(--resting-scene); transition: none; isolation: isolate; }
+.balloon-viewport::before { display: none; }
+.balloon-panel { position: absolute; inset: 0; overflow: visible; isolation: isolate; }
+/* Overscan keeps each painted theme covering the frame while it floats. */
+.theme-paint { position: absolute; inset: -100px 0; pointer-events: none; z-index: -2; background:
+ radial-gradient(ellipse at 3% 8%,color-mix(in srgb,var(--gold),transparent 40%),transparent 52%),
+ radial-gradient(ellipse at 98% 87%,color-mix(in srgb,var(--secondary),transparent 22%),transparent 55%),
+ radial-gradient(ellipse at 80% 0%,#fff7e9a6,transparent 45%),var(--scene); }
+.balloon-panel::before { content: ''; position: absolute; width: min(620px,90vw); aspect-ratio: 1; left: 50%; top: 42%; transform: translate(-50%,-35%); border: 1px solid color-mix(in srgb,var(--accent),transparent 86%); border-radius: 50%; box-shadow: 0 0 0 28px #fff7e71c,0 0 0 29px color-mix(in srgb,var(--gold),transparent 73%); pointer-events: none; z-index: -1; }
+.balloon-panel[inert] { pointer-events: none; }
+.panel-current { z-index: 2; opacity: 1; transform: translate3d(0,0,0); transition: none; }
+.panel-incoming { z-index: 1; opacity: 0; transform: translate3d(0,60px,0); transition: none; }
+.is-moving .panel-current { opacity: 0; transform: translate3d(0,-60px,0); }
+.is-moving .panel-incoming { opacity: 1; transform: translate3d(0,0,0); }
+.is-moving .balloon-panel { transition: transform var(--flight-duration) var(--scene-ease),opacity var(--flight-duration) linear; }
+.balloon-panel .balloon-scene { position: absolute; inset: 0 0 55px; min-height: 0; animation: none; transition: none; }
+.panel-current .balloon-scene { transform: translate3d(0,0,0); }
+.panel-incoming .balloon-scene { transform: translate3d(0,calc(100svh + 400px),0); }
+.is-moving .panel-current .balloon-scene { transform: translate3d(0,-110svh,0); }
+.is-moving .panel-incoming .balloon-scene { transform: translate3d(0,0,0); }
+.is-moving .balloon-scene { transition: transform var(--flight-duration) var(--scene-ease); }
+.balloon-panel .intro-footer { position: absolute; bottom: 0; left: 0; right: 0; }
+.balloon-panel .balloon-flight { transform: none; transition: none; will-change: auto; }
+/* Clip the printed pattern, leaving the balloon knot and string outside. */
+.balloon-print { position: absolute; inset: 0; border-radius: inherit; overflow: hidden; pointer-events: none; color: #fff8e9; }
+.balloon-number { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font: 700 42px/1 'DM Sans',sans-serif; font-variant-numeric: tabular-nums; letter-spacing: -1.5px; text-shadow: 0 1px 2px #64253d20; z-index: 1; }
+.balloon-motif { position: absolute; display: block; width: 30px; height: 30px; font: 27px/30px Georgia,serif; text-align: center; opacity: .66; }
+.motif-1 { right: 14px; top: 11px; transform: rotate(23deg) scaleX(.85); }
+.motif-2 { left: -12px; top: 56px; transform: rotate(-18deg) scaleX(.65); opacity: .48; }
+.motif-3 { right: -13px; bottom: 24px; transform: rotate(19deg) scaleX(.65); opacity: .48; }
+.motif-4 { left: 26px; bottom: 3px; transform: rotate(-15deg) scaleY(.8); font-size: 23px; }
+.balloon-panel .tap-label { transition: opacity .2s ease; }
+.is-moving .panel-current .tap-label { opacity: 0; }
+@media(prefers-reduced-motion: reduce) { .panel-incoming, .is-moving .panel-current, .panel-incoming .balloon-scene, .is-moving .panel-current .balloon-scene { transform: none; } }

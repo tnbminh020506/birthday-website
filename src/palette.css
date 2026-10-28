@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/* The card keeps its warm palette; the balloon palettes are independent. */
+:root {
+  color: #662d40;
+  background: #fff0eb;
+  --rose: #bd2e52;
+  --cherry: #a52749;
+  --peach: #ffa087;
+  --honey: #f4c558;
+}
+
+.intro {
+  background:
+    radial-gradient(ellipse at 3% 8%, color-mix(in srgb, var(--gold), transparent 40%), transparent 52%),
+    radial-gradient(ellipse at 98% 87%, color-mix(in srgb, var(--secondary), transparent 22%), transparent 55%),
+    radial-gradient(ellipse at 80% 0%, #fff7e9a6, transparent 45%),
+    var(--scene);
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  width: min(620px, 90vw);
+  aspect-ratio: 1;
+  left: 50%;
+  top: 42%;
+  transform: translate(-50%, -35%);
+  border: 1px solid color-mix(in srgb, var(--accent), transparent 86%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px #fff7e71c, 0 0 0 29px color-mix(in srgb, var(--gold), transparent 73%);
+  pointer-events: none;
+}
+
+.intro .intro-copy { margin: 35px auto 0; position: relative; z-index: 1; }
+.intro h1.wavy-message { margin: 0 auto; width: min(1100px, 96%); line-height: 1; letter-spacing: normal; }
+.wavy-message svg { display: block; width: 100%; overflow: visible; }
+.wavy-message text {
+  font-family: 'Dancing Script', 'Segoe Script', cursive;
+  font-weight: 700;
+  font-size: 56px;
+  paint-order: stroke fill;
+  stroke: #fff8e5;
+  stroke-width: 1.3px;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 4px 0 #c74c6710);
+}
+.wavy-message .wave-mobile { display: none; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+.scene-opening .balloon-button { margin-top: 35px; }
+.scene-balloon-only .balloon-button { margin-top: 145px; }
+.intro .balloon {
+  background:
+    radial-gradient(ellipse at 30% 21%, #fff9dc99, transparent 36%),
+    linear-gradient(140deg, var(--secondary) 5%, var(--accent) 68%, color-mix(in srgb, var(--accent), #172b46 20%));
+  box-shadow: inset -10px -8px 24px #7c17421a, 0 20px 45px color-mix(in srgb, var(--accent), transparent 80%);
+}
+.intro .s1 { color: var(--accent); opacity: .5; }
+.intro .s2 { color: color-mix(in srgb, var(--gold), #3b3542 25%); opacity: .7; }
+.intro .s3 { color: var(--secondary); opacity: .85; }
+.intro .progress .active:nth-child(3n + 1) { background: var(--accent); }
+.intro .progress .active:nth-child(3n + 2) { background: #c78321; }
+.intro .progress .active:nth-child(3n) { background: #e47769; }
+.intro .theme-label { color: #9b344a; }
+.intro-footer { color: #843b50; }
+.skip { color: #923048; border-color: #b43c5b55; background: #fff6e633; }
+.brand span { color: var(--rose); }
+
+.keepsake {
+  background:
+    radial-gradient(ellipse 75% 650px at 0 4%, #ffd9895c, transparent),
+    radial-gradient(ellipse 75% 900px at 100% 20%, #ffb6ca66, transparent),
+    #fff1ec;
+}
+.site-header { border-color: #bd2e5220; }
+.handwritten, .birthday-heading h1 em, .wishes-section h2 em, .final-note h2 em { color: var(--rose); }
+.eyebrow, .chapter { color: #ab3652; }
+.heading-star { color: #c38a1e; }
+.birthday-heading p, .section-note, .wish p { color: #885567; }
+.photo-placeholder { background: radial-gradient(ellipse at 10% 100%, #f2bb67, transparent 65%), linear-gradient(35deg, #f6a4a2, #ffe3d1); }
+.photo-1 .photo-placeholder { background: linear-gradient(135deg, #ffdda4, #eb899b); }
+.photo-2 .photo-placeholder { background: linear-gradient(140deg, #ffd77c, #f49e7e); }
+.photo-3 .photo-placeholder { background: linear-gradient(40deg, #db839d, #ffd5bf); }
+.photo-placeholder small, .photo-placeholder i { color: #833b50; }
+.tape { background: #efbb577d; }
+.sticker { background: #f8d776; color: #8c3c4c; }
+.scribble, .signature { color: #a04a60; }
+.doodle-heart { color: #cb3c5a; }
+.scroll-invitation, .end-footer { color: #9b485b; }
+.timeline::before { border-color: #d88795; }
+.timeline-dot { color: #bc3658; background: #ffe9e5; border-color: #d88795; }
+.wish:nth-child(2) .timeline-dot { background: #ffe5a3; color: #a36b22; border-color: #ddb25e; }
+.anime-card svg > circle { fill: #f8d7b5; }
+.anime-card svg > path:first-of-type { fill: #ce788e; }
+.wish:nth-child(2) .anime-card svg > circle { fill: #f5df9f; }
+.wish:nth-child(2) .anime-card svg > path:first-of-type { fill: #da9f57; }
+.wish:nth-child(3) .anime-card svg > circle { fill: #f6c9d5; }
+.final-note { background: radial-gradient(ellipse at 0 100%, #ffdc8db3, transparent 65%), linear-gradient(120deg, #ffe3d6, #f7c9d7); }
+.final-note > span:first-child { color: var(--cherry); }
+.final-note p { color: #995365; }
+.final-note h2.long-message { max-width: 900px; margin: 28px auto 18px; font-size: clamp(25px, 3vw, 38px); line-height: 1.45; overflow-wrap: break-word; }
+.photo-space.photo-3 img { object-position: center 24%; }
+
+@media (min-width: 1500px) { .intro .intro-copy { margin-top: 55px; } }
+@media (max-width: 650px) {
+  .intro .intro-copy { margin-top: 36px; padding: 0 10px; }
+  .intro h1.wavy-message { width: 100%; max-width: 540px; }
+  .wavy-message .wave-desktop { display: none; }
+  .wavy-message .wave-mobile { display: block; }
+  .wavy-message text { font-size: 52px; }
+  .scene-opening .balloon-button { margin-top: 30px; }
+  .scene-balloon-only .balloon-button { margin-top: 140px; }
+}
+
+/* Each tap releases one balloon, then the next scene slides upward. */
+.intro { background: var(--scene); transition: background-color .25s; }
+.color-wash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 3% 8%, color-mix(in srgb, var(--gold), transparent 40%), transparent 52%),
+    radial-gradient(ellipse at 98% 87%, color-mix(in srgb, var(--secondary), transparent 22%), transparent 55%),
+    radial-gradient(ellipse at 80% 0%, #fff7e9a6, transparent 45%),
+    var(--scene);
+  animation: wash-rise 1.1s cubic-bezier(.22,1,.36,1) both;
+}
+.balloon-scene { min-height: max(600px, calc(100svh - 55px)); animation: balloon-scene-in 1.1s cubic-bezier(.22,1,.36,1) both; }
+.balloon-scene .intro-copy { position: absolute; top: 8%; left: 0; width: 100%; margin: 0; }
+.balloon-stage { position: absolute; top: 54%; left: 50%; width: 180px; height: 290px; transform: translate(-50%, -35%); }
+.balloon-scene .balloon-button { margin: 0; touch-action: manipulation; user-select: none; }
+.balloon-flight { position: absolute; inset: 0; transform: translate3d(0,0,0); transition: transform var(--flight-duration) cubic-bezier(.32,0,.55,1); will-change: transform; }
+.balloon-idle { position: absolute; inset: 0; animation: balloon-sway 4.5s ease-in-out infinite; transform-origin: 50% 25%; }
+/* Keep the idle motion running; only the outer wrapper moves on release. */
+.intro .balloon, .intro.departing .balloon, .intro.departing .string { animation: none; }
+.intro.departing .balloon-flight { transform: translate3d(0,-110svh,0); }
+.intro-footer { justify-content: center; padding: 20px; position: relative; }
+@keyframes wash-rise { from { transform: translateY(15%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes balloon-scene-in { from { opacity: 0; transform: translate3d(0,85px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+@keyframes balloon-sway { 0%,100% { transform: translate3d(0,0,0) rotate(-1deg); } 50% { transform: translate3d(4px,-9px,0) rotate(2deg); } }
+@media (max-width: 650px) { .balloon-scene .intro-copy { margin: 0; top: 9%; } }
